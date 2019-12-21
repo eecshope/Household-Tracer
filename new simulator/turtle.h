@@ -10,7 +10,7 @@ class turtle {
 public:
     turtle(int x0, int y0);
     ~turtle();
-    void get_next(int *x, int *y, const int game_map[][150]);
+    void get_next(int &new_x, int &new_y, const int game_map[][150]);
 private:
     int x, y;
     void load_memory();

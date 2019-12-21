@@ -14,6 +14,6 @@ turtle::~turtle(){
 
 }
 //the result should be passed by the pointers. The inner state of x and y should also be updated.
-void turtle::get_next(int *x, int *y, const int game_map[][150]){
+void turtle::get_next(int &new_x, int &new_y, const int game_map[][150]){
      return;
 }

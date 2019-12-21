@@ -7,25 +7,24 @@
 
 class way
 {
-  public:
-  int x, y;
-  way * prev;
-  way(int x_, int y_, way* prev_) :x(x_), y(y_), prev(prev_) {}
-  way() {}
+public:
+    int x, y;
+    way * prev;
+    way(int x_, int y_, way* prev_) :x(x_), y(y_), prev(prev_) {}
+    way() {}
 };
 
 class human {
 public:
     human(int x0, int y0);
-    ~human();
-    void get_next(int *x, int *y, const int game_map[][150]);
+    void get_next(int &new_x, int &new_y, const int game_map[][150]);
 private:
     int x, y;
     int goalX, goalY;
     int last, now;
     way next[22600];
     int stepNow;
-    void next_dst(int *x, int *y);
+    void next_dst(int &new_x, int &new_y);
     void path_search(const int maze[][150]);
 };
 
