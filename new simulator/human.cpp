@@ -54,24 +54,28 @@ void human::path_search(const int maze[][150]) {
     way ways[22600];
     way *head = ways, *tail = ways + 1;
     ways[0] = way(this->x, this->y, NULL);
+    already[this->x][this->y] = 1;
     while (head != tail) {
         way pos = *head;
         if (pos.x == goalX && pos.y == goalY)
             break;
-        already[pos.x][pos.y] = 1;
         if (pos.x < 100 && maze[pos.x + 1][pos.y] != 1 && already[pos.x + 1][pos.y] == 0) {
+            already[pos.x + 1][pos.y] = 1;
             *tail = way(pos.x + 1, pos.y, head);
             ++tail;
         }
         if (pos.y < 120 && maze[pos.x][pos.y + 1] != 1 && already[pos.x][pos.y + 1] == 0) {
+            already[pos.x][pos.y + 1] == 1;
             *tail = way(pos.x, pos.y + 1, head);
             ++tail;
         }
         if (pos.x > 0 && maze[pos.x - 1][pos.y] != 1 && already[pos.x - 1][pos.y] == 0) {
+            already[pos.x - 1][pos.y] == 1;
             *tail = way(pos.x - 1, pos.y, head);
             ++tail;
         }
         if (pos.y > 0 && maze[pos.x][pos.y - 1] != 1 && already[pos.x][pos.y - 1] == 0) {
+            already[pos.x][pos.y - 1] == 0;
             *tail = way(pos.x, pos.y - 1, head);
             ++tail;
         }
