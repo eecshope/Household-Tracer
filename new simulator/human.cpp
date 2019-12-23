@@ -37,11 +37,7 @@ void human::get_next(int &new_x, int &new_y, const int game_map[][150]) {
             path_search(game_map);
         }
     }
-    if (stepNow >= 2) {
-        stepNow -= 2;
-        new_x = next[stepNow].x;
-        new_y = next[stepNow].y;
-    } else if (stepNow == 1) {
+    if (stepNow >= 1) {
         stepNow--;
         new_x = next[stepNow].x;
         new_y = next[stepNow].y;
@@ -123,34 +119,34 @@ void human::next_dst(int &new_x, int &new_y) {
     }
     if (dstRoom > 5)
         dstRoom = 0;
+    int tmp_x, tmp_y;
+    switch (dstRoom) {
+    case 0:
+      tmp_x = 1;
+      tmp_y = 1;
+      break;
+    case 1:
+      tmp_x = 1;
+      tmp_y = 61;
+      break;
+    case 2:
+      tmp_x = 41;
+      tmp_y = 1;
+      break;
+    case 3:
+      tmp_x = 41;
+      tmp_y = 21;
+      break;
+    case 4:
+      tmp_x = 41;
+      tmp_y = 101;
+      break;
+    default:
+      tmp_x = 41;
+      tmp_y = 101;
+      break;
+    }
     while (true) {
-        int tmp_x, tmp_y;
-        switch (dstRoom) {
-            case 0:
-                tmp_x = 1;
-                tmp_y = 1;
-                break;
-            case 1:
-                tmp_x = 1;
-                tmp_y = 61;
-                break;
-            case 2:
-                tmp_x = 41;
-                tmp_y = 1;
-                break;
-            case 3:
-                tmp_x = 41;
-                tmp_y = 21;
-                break;
-            case 4:
-                tmp_x = 41;
-                tmp_y = 101;
-                break;
-            default:
-                tmp_x = 41;
-                tmp_y = 101;
-                break;
-        }
         new_x = tmp_x + rand() % 60;
         new_y = tmp_y + rand() % 80;
         if (judge_room(new_x, new_y) - 1 == dstRoom)
