@@ -30,7 +30,7 @@ private:
     void init_freq();
     void learn(int room_no);
     int latest_sight[2];
-    static const int door[8][2];
+    static int door[8][2];
     static int dist_d2xy[8][150][150];
     static bool room_door[8][8];
     static int dist_d2d[8][8];
@@ -190,7 +190,7 @@ private:
                 }
                 else
                 {
-                    const int* target = door[door_order[room_searched][0]];
+                    int* target = door[door_order[room_searched][0]];
                     if (x0 == target[0] && y0 == target[1])
                     { // searching
                         room_searching = true;
@@ -266,9 +266,6 @@ private:
         }
     }*plan;
 };
-
-const int turtle::door[8][2] = {{0,0}, 
-    {40,9}, {40,77}, {60,32}, {60,104}, {72,100}, {0,0}, {0,0}};
 
 
 #endif //NEW_SIMULATOR_TURTLE_H
