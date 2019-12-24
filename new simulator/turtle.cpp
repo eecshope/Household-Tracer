@@ -159,6 +159,20 @@ void turtle::pre_search(const int game_map[][150])
         }
     }
 
+    {// door
+    	memset(door, 0, sizeof(door));
+        door[1][0] = 40;
+        door[1][1] = 9;
+        door[2][0] = 40;
+        door[2][1] = 77;
+        door[3][0] = 60;
+        door[3][1] = 32;
+        door[4][0] = 60;
+        door[4][1] = 104;
+        door[5][0] = 72;
+        door[5][1] = 100;
+    }
+
     {// room_door adjacency
         memset(room_door, 0, sizeof(room_door));
         room_door[1][1] = room_door[1][3] = true;
