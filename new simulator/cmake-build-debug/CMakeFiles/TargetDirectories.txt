@@ -1,0 +1,3 @@
+D:/PKU/school work/Grade3 Autumn/An Introduction to AI/final project/new simulator/cmake-build-debug/CMakeFiles/new_simulator.dir
+D:/PKU/school work/Grade3 Autumn/An Introduction to AI/final project/new simulator/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/PKU/school work/Grade3 Autumn/An Introduction to AI/final project/new simulator/cmake-build-debug/CMakeFiles/rebuild_cache.dir

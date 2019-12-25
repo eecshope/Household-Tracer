@@ -13,6 +13,10 @@ public:
     master(int tx0, int ty0, int hx0, int hy0);
     ~master();
     void step_forward();
+    void get_h_pos(int &x, int &y);
+    void get_t_pos(int &x, int &y);
+    void* get_map();
+    void rep_t();
 
 private:
     int tx,  ty, hx, hy;

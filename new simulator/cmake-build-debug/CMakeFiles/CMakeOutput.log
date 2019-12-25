@@ -1,0 +1,97 @@
+The system is: Windows - 10.0.18362 - AMD64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: D:/Program Files (x86)/Visual Studio/VC/Tools/MSVC/14.24.28314/bin/Hostx86/x86/cl.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+Microsoft (R) C/C++ Optimizing Compiler Version 19.24.28314 for x86
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+CMakeCCompilerId.c
+Microsoft (R) Incremental Linker Version 14.24.28314.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:CMakeCCompilerId.exe 
+CMakeCCompilerId.obj 
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.exe"
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.obj"
+
+The C compiler identification is MSVC, found in "D:/PKU/school work/Grade3 Autumn/An Introduction to AI/final project/new simulator/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/CMakeCCompilerId.exe"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: D:/Program Files (x86)/Visual Studio/VC/Tools/MSVC/14.24.28314/bin/Hostx86/x86/cl.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+Microsoft (R) C/C++ Optimizing Compiler Version 19.24.28314 for x86
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+CMakeCXXCompilerId.cpp
+Microsoft (R) Incremental Linker Version 14.24.28314.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:CMakeCXXCompilerId.exe 
+CMakeCXXCompilerId.obj 
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.exe"
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.obj"
+
+The CXX compiler identification is MSVC, found in "D:/PKU/school work/Grade3 Autumn/An Introduction to AI/final project/new simulator/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/CMakeCXXCompilerId.exe"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: D:/PKU/school work/Grade3 Autumn/An Introduction to AI/final project/new simulator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):nmake /nologo cmTC_2d4cc\fast && 	"D:\Program Files (x86)\Visual Studio\VC\Tools\MSVC\14.24.28314\bin\HostX86\x86\nmake.exe" -f CMakeFiles\cmTC_2d4cc.dir\build.make /nologo -L                  CMakeFiles\cmTC_2d4cc.dir\build
+Building C object CMakeFiles/cmTC_2d4cc.dir/testCCompiler.c.obj
+	"D:\Program Files (x86)\Visual Studio\VC\Tools\MSVC\14.24.28314\bin\Hostx86\x86\cl.exe" @C:\Users\ZEJUNW~1\AppData\Local\TEMP_~1\nmC130.tmp
+testCCompiler.c
+Linking C executable cmTC_2d4cc.exe
+	"D:\Program Files (x86)\JetBrains\apps\CLion\ch-0\193.5662.56\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_2d4cc.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\mt.exe --manifests  -- "D:\Program Files (x86)\Visual Studio\VC\Tools\MSVC\14.24.28314\bin\Hostx86\x86\link.exe" /nologo @CMakeFiles\cmTC_2d4cc.dir\objects1.rsp @C:\Users\ZEJUNW~1\AppData\Local\TEMP_~1\nmC2E6.tmp
+
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: D:/PKU/school work/Grade3 Autumn/An Introduction to AI/final project/new simulator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):nmake /nologo cmTC_50472\fast && 	"D:\Program Files (x86)\Visual Studio\VC\Tools\MSVC\14.24.28314\bin\HostX86\x86\nmake.exe" -f CMakeFiles\cmTC_50472.dir\build.make /nologo -L                  CMakeFiles\cmTC_50472.dir\build
+Building C object CMakeFiles/cmTC_50472.dir/CMakeCCompilerABI.c.obj
+	"D:\Program Files (x86)\Visual Studio\VC\Tools\MSVC\14.24.28314\bin\Hostx86\x86\cl.exe" @C:\Users\ZEJUNW~1\AppData\Local\TEMP_~1\nmC883.tmp
+CMakeCCompilerABI.c
+Linking C executable cmTC_50472.exe
+	"D:\Program Files (x86)\JetBrains\apps\CLion\ch-0\193.5662.56\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_50472.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\mt.exe --manifests  -- "D:\Program Files (x86)\Visual Studio\VC\Tools\MSVC\14.24.28314\bin\Hostx86\x86\link.exe" /nologo @CMakeFiles\cmTC_50472.dir\objects1.rsp @C:\Users\ZEJUNW~1\AppData\Local\TEMP_~1\nmC930.tmp
+
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: D:/PKU/school work/Grade3 Autumn/An Introduction to AI/final project/new simulator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):nmake /nologo cmTC_007e8\fast && 	"D:\Program Files (x86)\Visual Studio\VC\Tools\MSVC\14.24.28314\bin\HostX86\x86\nmake.exe" -f CMakeFiles\cmTC_007e8.dir\build.make /nologo -L                  CMakeFiles\cmTC_007e8.dir\build
+Building CXX object CMakeFiles/cmTC_007e8.dir/testCXXCompiler.cxx.obj
+	"D:\Program Files (x86)\Visual Studio\VC\Tools\MSVC\14.24.28314\bin\Hostx86\x86\cl.exe" @C:\Users\ZEJUNW~1\AppData\Local\TEMP_~1\nmCF68.tmp
+testCXXCompiler.cxx
+Linking CXX executable cmTC_007e8.exe
+	"D:\Program Files (x86)\JetBrains\apps\CLion\ch-0\193.5662.56\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_007e8.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\mt.exe --manifests  -- "D:\Program Files (x86)\Visual Studio\VC\Tools\MSVC\14.24.28314\bin\Hostx86\x86\link.exe" /nologo @CMakeFiles\cmTC_007e8.dir\objects1.rsp @C:\Users\ZEJUNW~1\AppData\Local\TEMP_~1\nmD044.tmp
+
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: D:/PKU/school work/Grade3 Autumn/An Introduction to AI/final project/new simulator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):nmake /nologo cmTC_aa73e\fast && 	"D:\Program Files (x86)\Visual Studio\VC\Tools\MSVC\14.24.28314\bin\HostX86\x86\nmake.exe" -f CMakeFiles\cmTC_aa73e.dir\build.make /nologo -L                  CMakeFiles\cmTC_aa73e.dir\build
+Building CXX object CMakeFiles/cmTC_aa73e.dir/CMakeCXXCompilerABI.cpp.obj
+	"D:\Program Files (x86)\Visual Studio\VC\Tools\MSVC\14.24.28314\bin\Hostx86\x86\cl.exe" @C:\Users\ZEJUNW~1\AppData\Local\TEMP_~1\nmD94C.tmp
+CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_aa73e.exe
+	"D:\Program Files (x86)\JetBrains\apps\CLion\ch-0\193.5662.56\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_aa73e.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x86\mt.exe --manifests  -- "D:\Program Files (x86)\Visual Studio\VC\Tools\MSVC\14.24.28314\bin\Hostx86\x86\link.exe" /nologo @CMakeFiles\cmTC_aa73e.dir\objects1.rsp @C:\Users\ZEJUNW~1\AppData\Local\TEMP_~1\nmD9F8.tmp
+
+
+
