@@ -109,7 +109,7 @@ search_plan::search_plan(turtle* _t)
 bool search_plan::move(turtle* _t)
 {
     int x0 = _t->x, y0 = _t->y;
-    if (room_searched > 6)
+    if (room_searched >= 6)
     {
         std::cerr << "Error: Search Complete. Human NOT Found.\n";
         return false;
@@ -525,9 +525,21 @@ bool turtle::get_next(int &new_x, int &new_y, const int game_map[][150])
     // human in sight - track
     if (now -> insight)
     {
-        if (plan) delete plan; plan = NULL;
-        x += sgn(now->hx - x);
-        y += sgn(now->hy - y);
+        if (plan) delete plan; plan=NULL;
+        int rt, rh;
+        rt = judge_room(x, y);
+        rh = judge_room(hx, hy);
+        if (rt && rh && rt!=rh)
+        {
+            int door_no = door_r2r[rt][rh];
+            x += sgn(door[door_no][0] - x);
+            y += sgn(door[door_no][1] - y);
+        }
+        else
+        {
+            x += sgn(now->hx - x);
+            y += sgn(now->hy - y);
+        }
         new_x = x; new_y = y;
         return true;
     }
