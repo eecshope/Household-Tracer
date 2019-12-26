@@ -39,7 +39,7 @@ void master::step_forward() {
         onwer->get_next(hx, hy, game_map);
         game_map[tx0][ty0] = 0;
         game_map[hx0][hy0] = 0;
-        if(tx==ty&&hx==hy)
+        if(tx==hx&&ty==hy)
             game_map[hx][hy] = 4;
         else{
             game_map[hx][hy] = 3;
@@ -49,7 +49,7 @@ void master::step_forward() {
         onwer->get_next(hx, hy, game_map);
         game_map[tx0][ty0] = 0;
         game_map[hx0][hy0] = 0;
-        if(tx==ty&&hx==hy)
+        if(tx==hx&&ty==hy)
             game_map[hx][hy] = 4;
         else{
             game_map[hx][hy] = 3;
