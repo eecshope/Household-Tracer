@@ -399,7 +399,7 @@ void turtle::pre_search(const int game_map[][150])
         node_length[4][2][3] = node_length[4][3][2] = 25;
         node_length[4][5][5] = 22;
         node_length[4][2][5] = node_length[4][5][2] = 22;
-        node_length[4][5][3] = node_length[4][3][5] = 26;
+        node_length[4][5][3] = node_length[4][3][5] = 27;
         node_length[5][4][4] = 4;
         node_length[5][5][5] = 6;
         node_length[5][4][5] = 8;
@@ -494,7 +494,6 @@ void turtle::cheak_wall(int x0, int y0, int& x, int& y, const int game_map[][150
             if ((j % ration)*2 <= ration && game_map[i/ration][j/ration] == 1)
             {x = y = -1; return;}
         }
-        return;
     }
 }
 
@@ -532,8 +531,58 @@ bool turtle::get_next(int &new_x, int &new_y, const int game_map[][150])
         if (rt && rh && rt!=rh)
         {
             int door_no = door_r2r[rt][rh];
-            x += sgn(door[door_no][0] - x);
-            y += sgn(door[door_no][1] - y);
+            //x += sgn(door[door_no][0] - x);
+               //y += sgn(door[door_no][1] - y);
+            int* target = door[door_no];
+            int dx, dy, (*map)[150] = dist_d2xy[door_no];
+            dx = sgn(target[0] - x);
+            dy = sgn(target[1] - y);
+            for (int k = 0; k <= 4; k++)
+            {
+                for (int i = max(0, k - 2); i <= min(2, k); i++)
+                {
+                    int j = k - i;
+                    int x1, y1;
+                    if (abs(dx + i) <= 1)
+                    {
+                        if (abs(dy + j) <= 1)
+                        {
+                            x1 = x + dx + i; y1 = y + dy + j;
+                            if (map[x1][y1] < map[x][y] && avail[x1][y1])
+                            {
+                                new_x = x = x1; new_y = y = y1; return true;
+                            }
+                        }
+                        if (abs(dy - j) <= 1)
+                        {
+                            x1 = x + dx + i; y1 = y + dy - j;
+                            if (map[x1][y1] < map[x][y] && avail[x1][y1])
+                            {
+                                new_x = x = x1; new_y = y = y1; return true;
+                            }
+                        }
+                    }
+                    if (abs(dx - i) <= 1)
+                    {
+                        if (abs(dy + j) <= 1)
+                        {
+                            x1 = x + dx - i; y1 = y + dy + j;
+                            if (map[x1][y1] < map[x][y] && avail[x1][y1])
+                            {
+                                new_x = x = x1; new_y = y = y1; return true;
+                            }
+                        }
+                        if (abs(dy - j) <= 1)
+                        {
+                            x1 = x + dx - i; y1 = y + dy - j;
+                            if (map[x1][y1] < map[x][y] && avail[x1][y1])
+                            {
+                                new_x = x = x1; new_y = y = y1; return true;
+                            }
+                        }
+                    }
+                }
+            }
         }
         else
         {
