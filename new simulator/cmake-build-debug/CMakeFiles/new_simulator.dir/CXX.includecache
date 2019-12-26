@@ -8,27 +8,27 @@
 
 D:/PKU/school work/Grade3 Autumn/An Introduction to AI/final project/new simulator/human.h
 
-D:/PKU/school work/Grade3 Autumn/An Introduction to AI/final project/new simulator/main.cpp
-iostream
--
-cstdio
--
-utils.h
-D:/PKU/school work/Grade3 Autumn/An Introduction to AI/final project/new simulator/utils.h
+D:/PKU/school work/Grade3 Autumn/An Introduction to AI/final project/new simulator/master.cpp
 master.h
 D:/PKU/school work/Grade3 Autumn/An Introduction to AI/final project/new simulator/master.h
-easyx.h
--
-conio.h
--
-plotter.h
-D:/PKU/school work/Grade3 Autumn/An Introduction to AI/final project/new simulator/plotter.h
+utils.h
+D:/PKU/school work/Grade3 Autumn/An Introduction to AI/final project/new simulator/utils.h
 
 D:/PKU/school work/Grade3 Autumn/An Introduction to AI/final project/new simulator/master.h
 turtle.h
 D:/PKU/school work/Grade3 Autumn/An Introduction to AI/final project/new simulator/turtle.h
 human.h
 D:/PKU/school work/Grade3 Autumn/An Introduction to AI/final project/new simulator/human.h
+plotter.h
+D:/PKU/school work/Grade3 Autumn/An Introduction to AI/final project/new simulator/plotter.h
+cstdio
+-
+conio.h
+-
+windows.h
+-
+Mmsystem.h
+-
 
 D:/PKU/school work/Grade3 Autumn/An Introduction to AI/final project/new simulator/plotter.h
 easyx.h

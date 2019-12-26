@@ -7,6 +7,13 @@
 
 #include "turtle.h"
 #include "human.h"
+#include "plotter.h"
+#include <cstdio>
+#include <conio.h>
+
+#include<windows.h>
+#include<Mmsystem.h>
+#pragma comment(lib,"winmm.lib")
 
 class master {
 public:
@@ -24,6 +31,7 @@ private:
     int current_time;
     turtle *follower;
     human *onwer;
+    plotter *drawer;
 };
 
 

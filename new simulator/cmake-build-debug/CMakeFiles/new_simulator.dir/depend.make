@@ -10,11 +10,11 @@ CMakeFiles\new_simulator.dir\main.cpp.obj: ..\main.cpp
 CMakeFiles\new_simulator.dir\main.cpp.obj: ..\master.h
 CMakeFiles\new_simulator.dir\main.cpp.obj: ..\plotter.h
 CMakeFiles\new_simulator.dir\main.cpp.obj: ..\turtle.h
-CMakeFiles\new_simulator.dir\main.cpp.obj: ..\utils.h
 
 CMakeFiles\new_simulator.dir\master.cpp.obj: ..\human.h
 CMakeFiles\new_simulator.dir\master.cpp.obj: ..\master.cpp
 CMakeFiles\new_simulator.dir\master.cpp.obj: ..\master.h
+CMakeFiles\new_simulator.dir\master.cpp.obj: ..\plotter.h
 CMakeFiles\new_simulator.dir\master.cpp.obj: ..\turtle.h
 CMakeFiles\new_simulator.dir\master.cpp.obj: ..\utils.h
 

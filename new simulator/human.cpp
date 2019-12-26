@@ -33,7 +33,7 @@ void human::get_next(int &new_x, int &new_y, const int game_map[][150]) {
             last = now;
             now = judge_room(this->x, this->y);
             next_dst(goalX, goalY);
-            printf("Now in room %d and prepare to go to loc(%d, %d)", now, goalX, goalY);
+            //printf("Now in room %d and prepare to go to loc(%d, %d)", now, goalX, goalY);
             path_search(game_map);
         }
     }
