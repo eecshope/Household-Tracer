@@ -41,7 +41,7 @@ int dist_xy2xy(int x1, int y1, int x2, int y2)
 record::record(record* cmp, int _hx, int _hy, turtle* _t)
 {
     hx = _hx; hy = _hy;
-    hx == -1 ? insight = false : insight = true;
+    hx < 0 ? insight = false : insight = true;
     if (cmp)
     {
         motive = (!insight) || (hx != cmp->hx) || (hy != cmp->hy);
@@ -392,7 +392,7 @@ void turtle::pre_search(const int game_map[][150])
         node_length[1][1][1] = 14;
         node_length[1][3][3] = 11;
         node_length[1][3][1] = node_length[1][1][3] = 18;
-        node_length[2][2][2] = 7;
+        node_length[2][2][2] = 8;
         node_length[3][1][1] = 4;
         node_length[4][2][2] = 23;
         node_length[4][3][3] = 21;
@@ -402,7 +402,7 @@ void turtle::pre_search(const int game_map[][150])
         node_length[4][5][3] = node_length[4][3][5] = 27;
         node_length[5][4][4] = 4;
         node_length[5][5][5] = 6;
-        node_length[5][4][5] = 8;
+        node_length[5][4][5] = node_length[5][5][4] = 8;
         node_length[6][4][4] = 1;
     }
     {// dist needed for searching room i
@@ -460,41 +460,50 @@ turtle(int x0, int y0, const int game_map[][150])
     //Other things that needed to be implemented.
 }
 
-bool turtle::scan(int x0, int y0, int r0, int& x, int& y, const int game_map[][150])
+bool turtle::scan(int x0, int y0, int r0, int& hx, int& hy, const int game_map[][150])
 {
-    for (int i = x0 - r0; i <= x0 + r0; i++)
-        for (int j = y0 - r0; j <= y0 + r0; j++)
+    for (int i = max(x0 - r0, 1); i <= x0 + r0; i++)
+        for (int j = max(y0 - r0, 1); j <= y0 + r0; j++)
             if (game_map[i][j] == 3)
             {
-                x = i; y = j;
+                hx = i; hy = j;
                 return true;
             }
-    x = -1; y = -1;
+    hx = -1; hy = -1;
     return false;
 }
 
-void turtle::cheak_wall(int x0, int y0, int& x, int& y, const int game_map[][150])
+bool turtle::cheak_wall(int x0, int y0, int& hx, int& hy, const int game_map[][150])
 {
-    int ration = max(abs(x0-x), abs(y0-y));
+    int ration = max(abs(x0-hx), abs(y0-hy));
     for (int i,j,k = 1; k < ration; k++)
     {
-        i = (x0 * k + x * (ration - k));
-        j = (y0 * k + y * (ration - k));
+        i = (x0 * k + hx * (ration - k));
+        j = (y0 * k + hy * (ration - k));
         if ((i % ration)*2 >= ration)
         {
             if ((j % ration)*2 >= ration && game_map[i/ration+1][j/ration+1] == 1)
-            {x = y = -1; return;}
+            {
+                hx = -(i / ration + 1);  hy = -(j / ration + 1); return false;
+            }
             if ((j % ration)*2 <= ration && game_map[i/ration+1][j/ration] == 1)
-            {x = y = -1; return;}
+            {
+                hx = -(i/ration+1);  hy = -j/ration; return false;
+            }
         }
         if ((i % ration)*2 <= ration)
         {
             if ((j % ration)*2 >= ration && game_map[i/ration][j/ration+1] == 1)
-            {x = y = -1; return;}
+            {
+                hx = -i/ration;  hy = -(j/ration+1); return false;
+            }
             if ((j % ration)*2 <= ration && game_map[i/ration][j/ration] == 1)
-            {x = y = -1; return;}
+            {
+                hx = -i/ration;  hy = -j/ration; return false;
+            }
         }
     }
+    return true;
 }
 
 turtle::~turtle()
@@ -518,8 +527,8 @@ bool turtle::get_next(int &new_x, int &new_y, const int game_map[][150])
     }
     // human in robot's sight?
     int hx, hy;
-    bool around = turtle::scan(x, y, r, hx, hy, game_map);
-    if (around) turtle::cheak_wall(x, y, hx, hy, game_map);
+    bool around = flag_scan = turtle::scan(x, y, r, hx, hy, game_map);
+    if (around) flag_cheak_wall =  turtle::cheak_wall(x, y, hx, hy, game_map);
     now = new record(last, hx, hy, this);
     // human in sight - track
     if (now -> insight)
@@ -528,6 +537,24 @@ bool turtle::get_next(int &new_x, int &new_y, const int game_map[][150])
         int rt, rh;
         rt = judge_room(x, y);
         rh = judge_room(hx, hy);
+        if (rt && !rh)
+        {
+            for (int i = -1; i <= 1 && !rh; i++)
+                for (int j = -1; j <= 1 && !rh; j++)
+                {
+                    int temp = judge_room(hx + i, hy + j);
+                    if (temp && temp != rt) rh = temp;
+                }
+        }
+        /*else if (rh && !rt)
+        {
+            for (int i = -1; i <= 1 && !rt; i++)
+                for (int j = -1; j <= 1 && !rt; j++)
+                {
+                    int temp = judge_room(x + i, y + j);
+                    if (temp && temp != rh) rt = temp;
+                }
+        }*/
         if (rt && rh && rt!=rh)
         {
             int door_no = door_r2r[rt][rh];
@@ -586,8 +613,11 @@ bool turtle::get_next(int &new_x, int &new_y, const int game_map[][150])
         }
         else
         {
-            x += sgn(now->hx - x);
-            y += sgn(now->hy - y);
+            int dx = sgn(now->hx - x);
+            int dy = sgn(now->hy - y);
+            if (game_map[x + dx][y + dy] != 1) { x += dx; y += dy; }
+            else if (game_map[x + dx][y] != 1) x += dx;
+            else if (game_map[x][y + dy] != 1) y += dy;
         }
         new_x = x; new_y = y;
         return true;
@@ -596,7 +626,12 @@ bool turtle::get_next(int &new_x, int &new_y, const int game_map[][150])
     else
     {
         if (!plan) plan = new search_plan(this);
-        if (!plan->move(this)) return false;
+        if (!plan->move(this))
+        {
+            delete plan;
+            plan = new search_plan(this);
+            plan->move(this);
+        }
         new_x = x; new_y = y;
         return true;
     }
@@ -604,12 +639,14 @@ bool turtle::get_next(int &new_x, int &new_y, const int game_map[][150])
 
 void turtle::report()
 {
-    printf("turtle is in room %d, (%d, %d) ", judge_room(x,y), x, y);
+    printf("turtle is in room %d, (%d, %d) ", judge_room(x, y), x, y);
     if (plan)
     {
         printf("on the way to ");
         if (plan->room_searching) printf("%dth node (%d, %d)", plan->node_order, plan->node_sequence[plan->node_order][0], plan->node_sequence[plan->node_order][1]);
-        else printf("%dth room, %dth door", plan->room_order[plan->room_searched], plan->door_order[plan->room_searched][0]);
-        printf("\n");
+        else printf("r[%d]=%dth room, %dth door",plan->room_searched, plan->room_order[plan->room_searched], plan->door_order[plan->room_searched][0]);
     }
+    printf("\n");
+    printf("inR = %d, wall = %d, motive = %d, insight = %d, hx = %d, hy = %d\n", flag_scan, flag_cheak_wall, now->motive, now->insight, now->hx, now->hy);
+    if (plan) printf("%d %d %d\n", plan->room_order[plan->room_searched], plan->door_order[plan->room_searched][0], plan->door_order[plan->room_searched][1]);
 }

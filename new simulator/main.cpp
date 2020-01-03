@@ -3,9 +3,9 @@
 #include <conio.h>
 int main() {
     freopen("log.txt", "w", stdout);
-    master game_core(61,21, 61, 30);
-
-    for(int i=0; i<100000; i++) {
+    master game_core(4, 77, 3, 80);
+    //master game_core(61, 21, 1, 1);
+    for(int i=0; i<1000000000; i++) {
         int timer = 0;
         while (timer <= 1000000)
             timer++;

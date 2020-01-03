@@ -1,0 +1,8 @@
+﻿  main.cpp
+D:\PKU\school work\Grade3 Autumn\An Introduction to AI\final project\new simulator\master.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+D:\PKU\school work\Grade3 Autumn\An Introduction to AI\final project\new simulator\turtle.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+D:\PKU\school work\Grade3 Autumn\An Introduction to AI\final project\new simulator\human.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+D:\PKU\school work\Grade3 Autumn\An Introduction to AI\final project\new simulator\plotter.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+D:\PKU\school work\Grade3 Autumn\An Introduction to AI\final project\new simulator\main.cpp(5,1): warning C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(243): message : see declaration of 'freopen'
+  simulator.vcxproj -> D:\PKU\school work\Grade3 Autumn\An Introduction to AI\final project\new simulator\Debug\simulator.exe

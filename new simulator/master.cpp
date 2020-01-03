@@ -22,6 +22,7 @@ master::master(int tx0, int ty0, int hx0, int hy0) {
         game_map[tx][ty] = 4;
     follower = new turtle(tx0, ty0, game_map);
     onwer = new human(hx0, hy0);
+    
     drawer = new plotter(
             _T("src\\shiCai\\img\\wall.gif"));
 
@@ -61,8 +62,11 @@ void master::step_forward() {
 
         } else {
             game_map[hx][hy] = 3;
-            game_map[tx][ty] = 2;
+            if (game_map[tx][ty] == 1)
+                printf("Warning! standing on the wall!");
+            game_map[tx][ty] = 2; // 
         }
+        follower->report();
     } else {
         onwer->get_next(hx, hy, game_map);
         game_map[tx0][ty0] = 0;
@@ -76,9 +80,10 @@ void master::step_forward() {
     }
     drawer->print_man(hx, hy);
     drawer->print_turtle(tx, ty);
+    
     if (hx == tx && hy == ty)
         PlaySoundA(
-                _T("src\\shiCai\\mysound\\fire.wav"),
+               _T("src\\shiCai\\mysound\\fire.wav"),
                 NULL, SND_SYNC);
     // For debugging
 }

@@ -31,7 +31,7 @@ void human::get_next(int &new_x, int &new_y, const int game_map[][150]) {
         } else if (game_map[this->x][this->y] == 4) // when turtle catch up with human
         {
             last = now;
-            now = judge_room(this->x, this->y);
+            now = judge_room(this->x, this->y) - 1;
             next_dst(goalX, goalY);
             //printf("Now in room %d and prepare to go to loc(%d, %d)", now, goalX, goalY);
             path_search(game_map);
@@ -95,7 +95,7 @@ void human::path_search(const int maze[][150]) {
 void human::next_dst(int &new_x, int &new_y) {
     double
             model[6][6][6] =
-            {{{0.8857142857142857, 0.0, 0.11428571428571428, 0.0, 0.0, 0.0}, {0,                    0,                  0,                   0,                   0,                    0},
+            {{{0.6, 0.0, 0.4, 0.0, 0.0, 0.0}, {0,                    0,                  0,                   0,                   0,                    0},
                                                                                                                                                                                               {0.08333333333333333, 0.16666666666666666, 0.08333333333333333, 0.3333333333333333, 0.3333333333333333, 0.0},
                      {0,                   0,                   0,                   0,                  0,                   0},                   {0,   0,   0,   0,   0,   0},   {0,                   0,                   0,   0,   0,                   0}},
              {{1.0,                0.0, 0.0,                 0.0, 0.0, 0.0},
@@ -114,9 +114,9 @@ void human::next_dst(int &new_x, int &new_y) {
                                                                                                                                                                                     {0,                   0,                   0,   0,   0,                   0}},
              {{1.0,                0.0, 0.0,                 0.0, 0.0, 0.0}, {0.0,                  1.0,                0.0,                 0.0,                 0.0,                  0.0}, {0.25,                0.5,                 0.0,                 0.0,                0.0,                0.25},
                      {0.0,                 0.2857142857142857,  0.0,                 0.7142857142857143, 0.0,                 0.0},                 {0.0, 0.0, 0.0, 1.0, 0.0, 0.0}, {0.0,                 0.0,                 1.0, 0.0, 0.0,                 0.0}}};
-    srand((unsigned int) (time(NULL)));
     int num = rand() % 10000;
     double prob = num / 10000.0;
+    printf("rand %lf, prob %lf,%lf%lf,%lf,%lf,%lf\n", prob, model[last][now][0], model[last][now][1], model[last][now][2], model[last][now][3], model[last][now][4], model[last][now][5]);
     int dstRoom = 0;
     for (int i = 0; i < 6; ++i) // choose a certain room according to the model
     {
@@ -125,8 +125,6 @@ void human::next_dst(int &new_x, int &new_y) {
             break;
         prob -= model[last][now][i];
     }
-    if (dstRoom > 5)
-        dstRoom = 0;
     int tmp_x, tmp_y;
     switch (dstRoom) {
         case 0:
@@ -157,7 +155,9 @@ void human::next_dst(int &new_x, int &new_y) {
     while (true) {
         new_x = tmp_x + rand() % 60;
         new_y = tmp_y + rand() % 80;
-        if (judge_room(new_x, new_y) - 1 == dstRoom)
+        if (judge_room(new_x, new_y) - 1 == dstRoom) {
+            printf("choose loc(%d, %d)\n", new_x, new_y);
             return;
+        }
     }
 }
